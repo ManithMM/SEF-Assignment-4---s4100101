@@ -114,7 +114,7 @@ class FlightSearch_Test {
 		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
-		assertEquals(false, flight.runFlightSearch("25-12-2025","SIN",false,"30-12-2025","syd","economy",2,1,1)); //Unavailable airport
+		assertEquals(false, flight.runFlightSearch("25-12-2025","sin",false,"30-12-2025","syd","economy",2,1,1)); //Unavailable airport
 	}
 	
 	//Testing the condition where the departure airport cannot be the destination airport
