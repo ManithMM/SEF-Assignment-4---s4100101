@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module Worldwanderer_test {
-}

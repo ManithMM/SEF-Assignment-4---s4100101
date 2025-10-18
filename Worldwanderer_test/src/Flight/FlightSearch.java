@@ -17,6 +17,8 @@ public class FlightSearch {
 	private int adultPassengerCount;
 	private int childPassengerCount;
 	private int infantPassengerCount;
+	private boolean isDepAvailable;
+	private boolean isDesAvailable;
 	public boolean runFlightSearch(String departureDate, String
 	departureAirportCode, boolean emergencyRowSeating,
 	String returnDate, String
@@ -24,6 +26,8 @@ public class FlightSearch {
 	int adultPassengerCount, int childPassengerCount,
 	int infantPassengerCount) {
 	boolean valid = true;
+	
+	
 	
 	
 	//TODO: Validate all the provided parameters.
@@ -49,7 +53,7 @@ public class FlightSearch {
 		return false;
 	}
 	
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy").withResolverStyle(ResolverStyle.STRICT);
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-uuuu").withResolverStyle(ResolverStyle.STRICT);
 ;
     LocalDate departDate; 
     LocalDate retDate;
@@ -85,24 +89,28 @@ public class FlightSearch {
     	
     //}
     
-    if (!departureAirportCode.equals(destinationAirportCode)) {
-    	return false;
+    if(departureAirportCode.equals(destinationAirportCode)) {
+  	  return false;
     }
     
+    String[] airports = {"syd", "mel", "lax", "cdg", "del", "pvg", "doh"};
     
+    isDepAvailable = false;
+    isDesAvailable = false;
     
-    
-    
-    
-    
-    
-    
-    
-	
-    
-	
-	
-	
+          
+          for(int i = 0; i < airports.length; ++i) {
+        	  if(departureAirportCode.equals(airports[i])) {
+        		  isDepAvailable = true;
+        	  }
+        	  if(destinationAirportCode.equals(airports[i])) {
+        		  isDesAvailable = true;
+        	  }
+          }
+          
+          if(!isDepAvailable || !isDesAvailable) {
+        	  return false;
+          }
 	
 	//if the search parameters meets the given conditions,
 	// the function should initialize all the class attributes and return true.
