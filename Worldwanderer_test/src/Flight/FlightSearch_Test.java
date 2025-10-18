@@ -47,8 +47,9 @@ class FlightSearch_Test {
 	void infantToAdultRatioTest() {
 		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
-		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,4,1));
-		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","business",2,6,1));
+		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",3,1,3)); //number of infants equal to number of infants
+		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",3,1,2)); //number of infants less than number of adults
+		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","business",4,1,6)); //number of infants  greater than number of adults
 	}
 
 	
