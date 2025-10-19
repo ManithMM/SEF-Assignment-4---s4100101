@@ -43,21 +43,24 @@ public class FlightSearch {
 		return false;
 	}
 	
-	//
+	//Infants cannot be in emergency rows nor business class
 	if ((infantPassengerCount > 0 && emergencyRowSeating == true) || (infantPassengerCount > 0 && seatingClass.equals("business")) ) {
 		return false;
 	}
-	
+	//child passenger count should be less than or equal to adult passenger count (example: if the child passenger count is 4 adult passenger count should be at least 2)
 	if(childPassengerCount > adultPassengerCount * 2 ) {
 		return false;
 	}
-	
+	//One infant per adult
 	if (infantPassengerCount > adultPassengerCount) {
 		return false;
 	}
 	
+	
+	//Dates must be STRICTLY validated in DD/MM/YYYY format and real
+    //       calendar dates
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-uuuu").withResolverStyle(ResolverStyle.STRICT);
-;
+
     LocalDate departDate; 
     LocalDate retDate;
     LocalDate now = LocalDate.now();
@@ -71,19 +74,23 @@ public class FlightSearch {
 		   return false;
 		   }
     
-     
+    //Departure date cannot be on the past 
     if (departDate.isBefore(now)) {
 	   return false;
 	}
+    
+    //Departure cannot be before "today"
     
     if (retDate.isBefore(departDate)) {
     	return false;
     }
     
+    // Seating class must be one of the allowed values ("economy", "premium economy", "business", "first").
     if(!seatingClass.equals("economy") && !seatingClass.equals("premium economy") && !seatingClass.equals("business") && !seatingClass.equals("first")) {
     	return false;
     }
     
+    //Only ECONOMY can have emergency row seating
     if(!seatingClass.equals("economy") && emergencyRowSeating == true) {
     	return false;
     }
@@ -91,10 +98,14 @@ public class FlightSearch {
     //if () {
     	
     //}
+    //Departure and destination cannot be the same airport.                                                                                                                                                                                                                       
     
     if(departureAirportCode.equals(destinationAirportCode)) {
   	  return false;
     }
+    
+    //Only specific airports are available:
+        //   "syd", "mel", "lax", "cdg", "del", "pvg", "doh"
     
     String[] airports = {"syd", "mel", "lax", "cdg", "del", "pvg", "doh"};
     
@@ -119,7 +130,8 @@ public class FlightSearch {
 	// the function should initialize all the class attributes and return true.
 	//else
 	// the function should return false
-          
+    
+    //Initializing class attributes
           this.departureDate = departureDate;
           this.departureAirportCode = departureAirportCode;
           this.emergencyRowSeating = emergencyRowSeating;
@@ -133,10 +145,12 @@ public class FlightSearch {
 	return valid;
 	}
 	
+	
+	//Access methods
 	public String getDepartureDate() {
 	    return departureDate;
 	}	
-	
+	                                                           
 	public String getDepartureAirportCode() {
 		return departureAirportCode;
 	}
@@ -170,8 +184,6 @@ public class FlightSearch {
     }
 			
     
-			
-	
 	
 	}
 

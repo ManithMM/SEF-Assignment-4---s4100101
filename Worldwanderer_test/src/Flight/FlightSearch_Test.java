@@ -13,8 +13,9 @@ class FlightSearch_Test {
 	void passengerCountTest() {
 		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
-		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
-		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",12,1,1));
+		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",3,3,3));
+		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",1,1,1));
+		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",4,3,3));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",0,0,0));
 	}
 	
@@ -133,11 +134,6 @@ class FlightSearch_Test {
 
 		 
 	}
-    
-    
-  
-    
- 
     
     //Testing for correct initialization
     @Test
