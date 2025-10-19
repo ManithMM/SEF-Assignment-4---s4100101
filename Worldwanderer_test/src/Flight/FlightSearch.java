@@ -43,6 +43,7 @@ public class FlightSearch {
 		return false;
 	}
 	
+	//
 	if ((infantPassengerCount > 0 && emergencyRowSeating == true) || (infantPassengerCount > 0 && seatingClass.equals("business")) ) {
 		return false;
 	}

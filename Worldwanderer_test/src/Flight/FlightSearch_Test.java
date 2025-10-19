@@ -137,14 +137,9 @@ class FlightSearch_Test {
     
   
     
-  //public boolean runFlightSearch(String departureDate, String
-	//departureAirportCode, boolean emergencyRowSeating,
-	//String returnDate, String
-	//destinationAirportCode, String seatingClass,
-	//int adultPassengerCount, int childPassengerCount,  
-	//int infantPassengerCount)
+ 
     
-    //Testing for correct implementation
+    //Testing for correct initialization
     @Test
     void correctInitialization() {
     	FlightSearch flight = new FlightSearch();
