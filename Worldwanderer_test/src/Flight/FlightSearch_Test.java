@@ -6,12 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class FlightSearch_Test {
 	
-	//public boolean runFlightSearch(String departureDate, String
-			//departureAirportCode, boolean emergencyRowSeating,
-			//String returnDate, String
-			//destinationAirportCode, String seatingClass,
-			//int adultPassengerCount, int childPassengerCount,  
-			//int infantPassengerCount)
+	
 
 	//Testing the condition where the passenger count must be at least 1 and cannot exceed 9. 
 	@Test
@@ -136,8 +131,36 @@ class FlightSearch_Test {
 		assertEquals(true, flight.runFlightSearch("10-01-2026","syd",false,"25-01-2026","cdg","premium economy",3,4,2));
 		assertEquals(true, flight.runFlightSearch("15-02-2026","del",false,"28-02-2026","pvg","business",2,2,0));
 
-		 //first class
+		 
 	}
+    
+    
+  
+    
+  //public boolean runFlightSearch(String departureDate, String
+	//departureAirportCode, boolean emergencyRowSeating,
+	//String returnDate, String
+	//destinationAirportCode, String seatingClass,
+	//int adultPassengerCount, int childPassengerCount,  
+	//int infantPassengerCount)
+    
+    //Testing for correct implementation
+    @Test
+    void correctInitialization() {
+    	FlightSearch flight = new FlightSearch();
+		assertEquals(true, flight.runFlightSearch("25-12-2025","lax",false,"30-12-2025","syd","economy",3,1,1));
+		assertEquals("25-12-2025", flight.getDepartureDate());
+		assertEquals("lax", flight.getDepartureAirportCode());
+		assertEquals(false, flight.getEmergencyRowSeating());
+		assertEquals("30-12-2025", flight.getReturnDate());
+		assertEquals("syd", flight.getDestinationAirportCode());
+		assertEquals("economy", flight.getSeatingClass());
+		assertEquals(3, flight.getAdultPassengerCount());
+		assertEquals(1, flight.getChildPassengerCount());
+		assertEquals(1, flight.GetInfantPassengerCount());
+		
+		
+    }
 	
     
     

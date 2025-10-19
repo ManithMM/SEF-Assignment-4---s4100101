@@ -31,12 +31,14 @@ public class FlightSearch {
 	
 	
 	//TODO: Validate all the provided parameters.
+	// Total passenger count must be between 1 and 9 inclusive 
 	int totalPassengerCount;
-	totalPassengerCount = adultPassengerCount + childPassengerCount + infantPassengerCount;
+	totalPassengerCount = adultPassengerCount + childPassengerCount + infantPassengerCount; 
 	if (totalPassengerCount < 1 || totalPassengerCount > 9) {
 		return false;    
 	}
 	
+	//Children cannot be in emergency rows nor first class
 	if ((childPassengerCount > 0 && emergencyRowSeating == true) || (childPassengerCount > 0 && seatingClass.equals("first")) ) {
 		return false;
 	}
@@ -116,8 +118,60 @@ public class FlightSearch {
 	// the function should initialize all the class attributes and return true.
 	//else
 	// the function should return false
+          
+          this.departureDate = departureDate;
+          this.departureAirportCode = departureAirportCode;
+          this.emergencyRowSeating = emergencyRowSeating;
+          this.returnDate = returnDate;
+          this.destinationAirportCode = destinationAirportCode;
+          this.seatingClass = seatingClass;
+          this.adultPassengerCount = adultPassengerCount;
+          this.childPassengerCount = childPassengerCount;
+          this.infantPassengerCount = infantPassengerCount;
+          
 	return valid;
 	}
+	
+	public String getDepartureDate() {
+	    return departureDate;
+	}	
+	
+	public String getDepartureAirportCode() {
+		return departureAirportCode;
+	}
+	
+	public boolean getEmergencyRowSeating() {
+	    return emergencyRowSeating;
+    }
+    
+	public String getReturnDate() {
+	    return returnDate;
+	}
+	
+    public String getDestinationAirportCode() {
+    	return destinationAirportCode;
+    }
+			
+    public String getSeatingClass() {
+    	return seatingClass;
+    }
+    
+    public int getAdultPassengerCount() {
+    	return adultPassengerCount;
+    }
+    
+    public int getChildPassengerCount() {
+    	return childPassengerCount;
+    }
+    
+    public int GetInfantPassengerCount() {
+    	return infantPassengerCount;
+    }
+			
+    
+			
+	
+	
 	}
 
 
