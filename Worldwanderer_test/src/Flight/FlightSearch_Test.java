@@ -11,7 +11,6 @@ class FlightSearch_Test {
 	//Testing the condition where the passenger count must be at least 1 and cannot exceed 9. 
 	@Test
 	void passengerCountTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",3,3,3));
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",1,1,1));
@@ -22,7 +21,6 @@ class FlightSearch_Test {
 	//Testing the condition in which children cannot be seated in emergency row seating or first class
 	@Test
 	void childrenSeatingTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","first",2,1,1)); //first class
@@ -32,7 +30,6 @@ class FlightSearch_Test {
 	//Testing the condition where infants cannot be seated in emergency row or business class
 	@Test
 	void infantSeatingTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","business",2,1,1)); //business class
@@ -42,7 +39,6 @@ class FlightSearch_Test {
 	//Testing the condition where the child passenger count should be less than or equal to adult passenger count (example: if the child passenger count is 4 adult passenger count should be at least 2)
 	@Test
 	void childrenToAdultRatioTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,4,1));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","business",2,6,1));
@@ -60,7 +56,6 @@ class FlightSearch_Test {
 	//Testing the condition where the departure date must not be in the past (must be a date after the current date in which the runSearchFlight method is being called)
 	@Test
 	void departureDateTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(false, flight.runFlightSearch("25-08-2025","mel",false,"30-12-2025","syd","economy",2,1,1)); //return date in August 2025
@@ -69,7 +64,6 @@ class FlightSearch_Test {
 	//Testing the condition where the dates must be in the format DD/MM/YYYY 
 	@Test
 	void dateFormatTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1)); 
 		assertEquals(false, flight.runFlightSearch("12-25-2025","mel",false,"2025-12-30","syd","first",2,1,1)); //dates not in DD/MM/YYYY format
@@ -79,7 +73,6 @@ class FlightSearch_Test {
 	//Testing the condition where the return date must be after the departure date
 	@Test
 	void departReturnComaparisonTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"23-12-2025","syd","first",2,1,1)); //return date before the departure date
@@ -88,7 +81,6 @@ class FlightSearch_Test {
 	//Testing the condition where the seating class must be one of ("economy', "premium economy", "business", "first")
 	@Test
 	void seatingClassTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","first",2,0,0)); //premium economy class
@@ -98,7 +90,6 @@ class FlightSearch_Test {
 	//Testing the condition where only economy class seating can have emergency row
 	@Test
 	void emergencyRowTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",true,"30-12-2025","syd","economy",2,0,0));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",true,"30-12-2025","syd","first",2,1,1)); //first class
@@ -107,7 +98,6 @@ class FlightSearch_Test {
 	//Testing the condition where the only available airports are, ("syd", "mel", "lax", "cdg", "del", "pvg", "doh")
 	@Test
 	void availableAirportsTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","sin",false,"30-12-2025","syd","economy",2,1,1)); //Unavailable airport
@@ -116,7 +106,6 @@ class FlightSearch_Test {
 	//Testing the condition where the departure airport cannot be the destination airport
     @Test
 	void departDestAirportTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(false, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","mel","economy",2,1,1)); 
@@ -125,7 +114,6 @@ class FlightSearch_Test {
     //Testing all the conditions to be true
     @Test
 	void finalValidityTest() {
-		//fail("Not yet implemented");
 		FlightSearch flight = new FlightSearch();
 		assertEquals(true, flight.runFlightSearch("25-12-2025","mel",false,"30-12-2025","syd","economy",2,1,1));
 		assertEquals(true, flight.runFlightSearch("20-11-2025","mel",true,"05-12-2025","lax","economy",1,0,0));
